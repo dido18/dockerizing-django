@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% load staticfiles %}
+    <!--link rel="stylesheet" type="text/css" href="{% static 'autofficina/style.css' %}" --/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <title>{% block title %}Autofficina {% endblock %}</title>
+  </head>
+  <body>
+    <!-- Header-->
+    <div class="page-header">
+      <!-- Bar menu in the header-->
+    <h1>Autofficina Meccanica</h1>
+    </div>
+
+      <div class="row">
+        <!-- Bar menu elements -->
+        <div class="col-md-6">
+          <ul class="nav nav-tabs">
+              <li class="active"><a href="{% url 'officina:reservations' %} ">Prenotazioni</a></li>
+              <li ><a href="{% url 'officina:clients' %} "">Clienti</a></li>
+              <li><a href="{% url 'officina:vehicles' %} "vehicles">Veicoli</a></li>
+          </ul>
+        </div>
+      </div>
+
+    <!-- END header-->
+
+  <!--!-- START main panel-->
+    <div class="row">
+        <!-- Wokspace-->
+          <div class="jumbotron">
+            <div class="container">
+              {% block workspace %}{% endblock %}
+            </div>
+          </div>
+        <!--END Wokspace-->
+    </div>
+    <!-- End  main panel-->
+
+  </body>
+</html>

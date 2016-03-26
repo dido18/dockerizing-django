@@ -1,0 +1,26 @@
+{% extends "appOfficina/base.html" %}
+
+{% block workspace %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Targa</th>
+        <th>Automezzo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if list_vehicles %}
+          {% for vehicle in list_vehicles %}
+            </tr>
+                <td><a href="{% url 'officina:detailsVehicle' vehicle.targa %}">{{ vehicle.targa}}</a></td>
+                <td>{{ vehicle.name}}</a></td>
+            </tr>
+          {% endfor %}
+          </ul>
+      {% else %}
+          <p>No Reservations are available.</p>
+      {% endif %}
+
+    </tbody>
+  </table>
+{% endblock %}

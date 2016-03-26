@@ -1,0 +1,29 @@
+
+{% extends "appOfficina/base.html" %}
+
+
+
+{% block workspace %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if list_clients %}
+          {% for client in list_clients %}
+          </tr>
+              <td><a href="{% url 'officina:detailsClient' client.id %}">{{ client.id}}</a></td>
+              <td><a href="{% url 'officina:detailsClient' client.id %}">{{ client.name}}</a></td>
+              <td><a href="{% url 'officina:detailsClient' client.id %}">{{ client.surname}}</a></td>
+          </tr>
+        {% endfor %}
+      {% else %}
+          <p>No clients are available.</p>
+      {% endif %}
+    </tbody>
+  </table>
+{% endblock %}

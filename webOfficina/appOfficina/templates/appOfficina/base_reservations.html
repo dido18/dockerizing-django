@@ -1,0 +1,39 @@
+
+{% extends "appOfficina/base.html" %}
+
+{% block workspace %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome cliente</th>
+        <th>automezzo </th>
+        <th>Data </th>
+        <th>ora inizio </th>
+        <th>ora fine</th>
+        <th>uso</th>
+        <th>note</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if list_reservations %}
+          {% for resv in list_reservations %}
+            </tr>
+                <td><a href="{% url 'officina:detailsReservation' resv.id %}">{{ resv.id}}</a></td>
+                <td><a href="{% url 'officina:detailsClient' resv.id_client.id %}">{{ resv.id_client.name}}</a></td>
+                <td><a href="{% url 'officina:detailsVehicle' resv.id_vehicle.targa %}">{{ resv.id_vehicle.name}}</a></td>
+                <td>{{ resv.date_reservation}}</a></td>
+                <td>{{ resv.hour_start_reservation}}</a></td>
+                <td>{{ resv.hour_end_reservation}}</a></td>
+                <td>{{ resv.use}}</a></td>
+                <td>{{ resv.note}}</a></td>
+            </tr>
+          {% endfor %}
+          </ul>
+      {% else %}
+          <p>No Reservations are available.</p>
+      {% endif %}
+
+    </tbody>
+  </table>
+{% endblock %}

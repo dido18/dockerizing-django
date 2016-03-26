@@ -1,0 +1,10 @@
+
+<h1>{{client.name}}</h1>
+<p> Prenotazioni a tuo nome: </p>
+<ul>
+  {% for reservation in client.reservation_set.all %}
+  <li>{{ reservation.id }}</l1>
+  {% endfor %}
+</ul>
+
+<a href ="{% url 'officina:detailClient' client.id %}"> Cnacella altre prenotazioni ? </a>
